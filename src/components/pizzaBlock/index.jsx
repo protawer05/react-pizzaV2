@@ -1,5 +1,5 @@
 import { useState } from 'react';
-const PizzaBlock = ({ imageUrl, name, types, sizes, price, category, rating }) => {
+const PizzaBlock = ({ imageUrl, title, types, sizes, price, category, rating }) => {
   const typeNames = ['тонкое', 'традиционное'];
   const [activeType, setActiveType] = useState(0);
   const [activeSize, setActiveSize] = useState(null);
@@ -8,7 +8,7 @@ const PizzaBlock = ({ imageUrl, name, types, sizes, price, category, rating }) =
     <div className="pizza-block-wrapper">
       <div className="pizza-block">
         <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
-        <h4 className="pizza-block__title">{name}</h4>
+        <h4 className="pizza-block__title">{title}</h4>
         <div className="pizza-block__selector">
           <ul>
             {types.map((item) => {
