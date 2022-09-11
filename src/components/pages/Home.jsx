@@ -10,7 +10,6 @@ import { SearchContext } from '../../App';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCategoryId, setCurrentPage, setFilters } from '../../redux/slices/filterSlice';
 import qs from 'qs';
-import axios from 'axios';
 import { fetchPizzas } from '../../redux/slices/pizzaSlice';
 
 const Home = () => {
@@ -18,10 +17,9 @@ const Home = () => {
   const dispatch = useDispatch();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
-  const { categoryId, sort, currentPage } = useSelector((state) => state.filter);
+  const { categoryId, sort, currentPage, searchValue } = useSelector((state) => state.filter);
   const { items, status } = useSelector((state) => state.pizza);
   const sortType = sort.sortProperty;
-  const { searchValue } = useContext(SearchContext);
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
